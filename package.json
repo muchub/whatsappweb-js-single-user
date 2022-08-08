@@ -1,0 +1,24 @@
+{
+  "name": "whatsappweb-js-multiple-user",
+  "version": "1.0.0",
+  "description": "login whatsapp-web.js using multiple users",
+  "main": "app.js",
+  "scripts": {
+    "test": "app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muchub/whatsappweb-js-multiple-user.git"
+  },
+  "author": "Muchub",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/muchub/whatsappweb-js-multiple-user/issues"
+  },
+  "homepage": "https://github.com/muchub/whatsappweb-js-multiple-user#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "socket.io": "^4.5.1",
+    "whatsapp-web.js": "^1.17.1"
+  }
+}
