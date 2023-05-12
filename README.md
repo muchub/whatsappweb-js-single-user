@@ -1,4 +1,4 @@
-# whatsappweb-js-multiple-user
+# Instruction
 
 1. Install NodeJs at https://nodejs.org/en
 2. Run "npm install" on your project directory
