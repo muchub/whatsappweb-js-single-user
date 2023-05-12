@@ -53,5 +53,5 @@ client.initialize();
 
 //Listen to server port
 server.listen(port, () => {
-    console.log("listening port " + port);
+    console.log("listening port " + port + "\nurl: http://localhost:" + port);
 });
