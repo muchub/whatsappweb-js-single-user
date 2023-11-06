@@ -32,6 +32,12 @@ io.on('connection', (socket) => {
         socket.emit('qr', '');
     });
 
+    client.on('message', message => {
+        if (message.body === '!ping') {
+            client.sendMessage(message.from, 'pong');
+            console.log(message.from);
+        }
+    });
 });
 
 app.get('/', (req, res) => {
@@ -45,8 +51,17 @@ app.get('/jquery', (req, res) => {
 app.get('/sendMessage', (req, res) => {
     var phone = req.query.phone;
     var msg = req.query.msg;
-    client.sendMessage(String(phone) + "@c.us", String(msg));
-    res.send("msg sent");
+    try {
+        msg_id = String(phone) + '@c.us';
+        console.log(msg_id);
+        client.sendMessage(String(phone) + '@c.us', String(msg));
+        //client.sendMessage('60195969014@c.us', 'test');
+        res.send("msg sent");
+
+    } catch (error) {
+        console.log("err");
+    }
+
 });
 
 client.initialize();
