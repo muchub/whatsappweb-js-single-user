@@ -5,12 +5,19 @@ const express = require('express');
 const app = express();
 const http = require('http');
 const server = http.createServer(app);
-const { Server } = require("socket.io");
-const io = new Server(server);
+const socketIO = require("socket.io");
+var io = socketIO(server, {
+    cors: {
+        origin: "http://localhost",
+        methods: ["GET", "POST"]
+    }
+})
 const port = 3000;
 
 //Socket IO
+var i = 0;
 io.on('connection', (socket) => {
+    console.log(i++);
     socket.emit('message', 'Generating Qr Code');
     console.log('a user connected');
     socket.on('disconnect', () => {
