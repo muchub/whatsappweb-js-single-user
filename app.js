@@ -98,18 +98,19 @@ app.get('/sendMessage', (req, res) => {
     var phone = req.query.phone;
     var msg = req.query.msg;
     var msg_id = String(phone) + '@c.us';
-    if (qrReady == 1) {
+
+    console.log(/^\d+$/.test(phone));
+    if (qrReady == 1 && /^\d+$/.test(phone)) {
         try {
-            console.log(msg_id);
+            console.log("Message '", msg, "' send to ", msg_id);
             client.sendMessage(String(phone) + '@c.us', String(msg));
             //client.sendMessage('60195969014@c.us', 'test');
             res.json({ api_ready: qrReady, phone: msg_id, msg: msg });
-
         } catch (error) {
-            res.json({ api_status: 'error' });
             console.log("err");
+            res.json({ api_status: 'error' });
         }
-    }else{
+    } else {
         res.json({ api_ready: qrReady, phone: msg_id, msg: msg });
     }
 });
